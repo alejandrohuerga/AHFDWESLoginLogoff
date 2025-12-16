@@ -6,17 +6,16 @@
  * @since 16/12/2025
 */   
 
- $controller[
+    $controller = [
     'inicioPublico' => 'controller/cInicioPublico.php',
-    'inicioPrivado' => 'controller/cInicioPrivado.php',
-    'login' => 'controller/cLogin.php'
- ];
+    'login' => 'controller/cLogin.php',
+    'inicioPrivado' => 'controller/cInicioPrivado.php'
+    ];
 
- $view[
+    $view = [
     'inicioPublico' => 'view/vInicioPublico.php',
-    'layout' => 'view/Layout.php',
+    'layout' => 'view/layout.php',
     'login' => 'view/Login.php',
     'inicioPrivado' => 'view/vInicioPrivado.php'
- ];
-
+    ];
 ?>
