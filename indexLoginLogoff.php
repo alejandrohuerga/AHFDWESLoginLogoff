@@ -18,4 +18,5 @@
 
  // Cargamos el controlador de la página en curso.
  require_once $controller[$_SESSION['paginaEnCurso']];
+ require_once $view[$_SESSION['paginaEnCurso']];
 ?>
