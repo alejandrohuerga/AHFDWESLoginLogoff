@@ -15,7 +15,7 @@
     $view = [
     'inicioPublico' => 'view/vInicioPublico.php',
     'layout' => 'view/layout.php',
-    'login' => 'view/Login.php',
+    'login' => 'view/vlogin.php',
     'inicioPrivado' => 'view/vInicioPrivado.php'
     ];
 ?>
