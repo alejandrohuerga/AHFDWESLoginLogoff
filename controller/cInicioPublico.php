@@ -5,12 +5,14 @@
  */
 
   if(isset($_REQUEST["iniciarSesion"])){
-      $_SESSION['paginaEnCurso']='login';
-      header('location: indexLoginLogoff.php');
-      exit;
+    $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso']='login';
+    header('location: indexLoginLogoff.php');
+    exit;
   }
+
+  
 
   // cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
   require_once $view['layout'];
- 
 ?>

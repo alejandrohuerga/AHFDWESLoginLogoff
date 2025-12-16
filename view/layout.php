@@ -17,24 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Play:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <p>LOGIN LOGOFF TEMA 5</p>
-        <h2 id="inicioPublico">INICIO PÚBLICO</h2>
-        <form>
-            <input type="submit" name="iniciarSesion" value="INICIAR SESIÓN"/>
-            <button type="submit" name="idioma" value="en">
-                <img src="doc/images/reino-unido.png" alt="Ingles">
-            </button>
-            <button type="submit" name="idioma" value="es">
-                <img src="doc/images/spain.png" alt="Español">
-            </button>
-            <button type="submit" name="idioma" value="pt">
-                <img src="doc/images/portugal.png" alt="Portugues">
-            </button>
-        </form> 
-    </header>
-    <main>
-        <?php require_once $view[$_SESSION['paginaEnCurso']];?>
+    <?php require_once $view[$_SESSION['paginaEnCurso']];?>
     </main>
     <footer>
         <p class="nombre"><a href="https://alejandrohuefer.ieslossauces.es/">Alejandro De la Huerga Fernández</a><p>
