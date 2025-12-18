@@ -1,6 +1,12 @@
 <?php 
 /**
  * Clase que representa un Usuario.
+ * 
+ * Clase que nos permitre crear objetos de Usuario.
+ * 
+ * @author Alejandro De la Huerga Fernández
+ * @version 1.0.0 Fecha última modificación: 18/12/2025
+ * @since 1.0.0
 */
 
 class Usuario{
@@ -12,7 +18,18 @@ class Usuario{
     private $fechaHoraUltimaConexionAnterior;
     private $perfil;
     
-    
+    /**
+     * Function __construct
+     * Función constructor para crear un objeto usuario.
+     * 
+     * @param String $codUsuario Cadena del codigo de usuario, max length=8.
+     * @param String $password Cadena de la password de usuario, max length=64.
+     * @param String $descUsuario Cadena de la descripción de usuario, max length=255.
+     * @param int $numAccesos número de accesos del usuario.
+     * @param String $fechaHoraUltimaConexión fecha y hora de la última conexión.
+     * @param String $fechaHoraUltimaConexiónAnterior fecha y hora de la conexión anterior.
+     * @param String $perfil Opcional. Cadena con el valor 'administrador o 'usuario' por defecto 'usuario'.
+     */
 
     public function __construct($codUsuario,$password,$descUsuario,$numAccesos,$fechaHoraUltimaConexionAnterior) {
         $this->codUsuario= $codUsuario;

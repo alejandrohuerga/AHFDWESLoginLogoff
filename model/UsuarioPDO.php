@@ -39,13 +39,14 @@ class UsuarioPDO{
             
             if( $resultado -> rowcount() >0){
                 
+                
             }
+
+            return $oUsuario;
             
         }catch (Exception $ex){
             echo $ex -> getMessage();
-        }
-
-        
+        } 
     }
 }
 ?>
