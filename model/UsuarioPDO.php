@@ -10,6 +10,7 @@
  * */
 
 class UsuarioPDO{
+    
     /**
      * Función para validar un usuario.
      * Función que comprueba si existe el usuario en la base de datos.
@@ -37,9 +38,9 @@ class UsuarioPDO{
 
             $resultado=DBPDO::ejecutarConsulta($consulta);
             
+            
             if( $resultado -> rowcount() >0){
-                
-                
+                $oUsuario=new Usuario();
             }
 
             return $oUsuario;
