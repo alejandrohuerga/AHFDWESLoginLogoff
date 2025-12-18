@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * @author Alejandro De la Huerga Fernández
  * @since 16/12/2025

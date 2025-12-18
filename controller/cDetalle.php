@@ -1,12 +1,17 @@
 <?php
-if(isset($_REQUEST['cerrarSesion'])){
-    $_SESSION['paginaEnCurso']='inicioPublico';
-}
 
-if(isset($_REQUEST['volver'])){
-    $_SESSION['paginaEnCurso']=$_SESSION['paginaAnterior'];
-}
+    if(isset($_REQUEST['cerrarSesion'])){
+        $_SESSION['paginaEnCurso']='inicioPublico';
+        header("location: indexLoginLogoff.php");  
+        exit;
+    }
 
-require_once $view['layout'];
+    if(isset($_REQUEST['volver'])){
+        $_SESSION['paginaEnCurso']='inicioPrivado';
+        header("location: indexLoginLogoff.php");  
+        exit;
+    }
+
+    require_once $view['layout'];
 
 ?>
