@@ -29,25 +29,28 @@ class UsuarioPDO{
      */
     
     public static function validarUsuario($codUsuario,$password){
-        try{
-            $oUsuario=null;
-            $consulta = <<<QUERY
-               SELECT * FROM T_01Usuario WHERE T01_CodUsuario="$codUsuario" 
-               AND T01_Password=SHA2("{$codUsuario}{$password}",256);
-            QUERY;
+            $oUsuario=null; // Variable que almacenara el objeto de la clase usuario inicializado a null.
+            // Comprobación de que el usuario y el password existen en la base de datos.
+            $consulta="SELECT * FROM T_01Usuario WHERE T01_CodUsuario=? AND T01_Password=?";
+            $passwordEncriptado=hash("sha256",($codUsuario.$password)); // Encriptamos la password.
+            // Variable resultado que devuelve la función ejecutar consulta con los parámetros.
+            $resultado=DBPDO::ejecutarConsulta($consulta,[$codUsuario,$passwordEncriptado]); 
+            
+            if($resultado -> rowCount()>0){ // Si la consulta devuelve algín resultado.
+                $oUsuarioConsulta = $resultado -> fetchObject(); // Guardo en la variable en forma de objeto el resultado de la consulta.
 
-            $resultado=DBPDO::ejecutarConsulta($consulta);
-            
-            
-            if( $resultado -> rowcount() >0){
-                $oUsuario=new Usuario();
+                // Actualizamos la fecha de la última conexión.
+                $consultaActualizaciónFechaConexion="UPDATE T_01Usuario SET T01_NumConexiones = T01_NumConexiones+1, T01_FechaHoraUltimaConexion=? WHERE T01_CodUsuario=?";
+                $resultadoActualizacionFechaConexion=DBPDO::ejecutarConsulta($consultaActualizaciónFechaConexion,[time(),$codUsuario]);
+
+                if($resultadoActualizacionFechaConexion){
+                    // Instancia de un objeto usuario con los datos del usuario.
+                    $oUsuario=new Usuario($oUsuarioConsulta->T01_CodUsuario,$oUsuarioConsulta->T01_Password,$oUsuarioConsulta->T01_DescUsuario,$oUsuarioConsulta->T01_NumConexiones+1,
+                    $oUsuarioConsulta->T01_FechaHoraUltimaConexion, $oUsuarioConsulta->T01_Perfil, $oUsuarioConsulta->T01_ImagenUsuario);
+                }
             }
-
-            return $oUsuario;
             
-        }catch (Exception $ex){
-            echo $ex -> getMessage();
-        } 
+            return $oUsuario;
     }
 }
 ?>
