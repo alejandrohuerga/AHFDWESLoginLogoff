@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'conf/confDBPDO';
+require_once 'config/confDBPDO.php'; // Importamos el archivo de configuración de la base de datos.
 class DBPDO{  // Clase para la conexión con la base de datos y poder ejecutar consultas.
     public static function ejecutarConsulta ($entradaSQL, $parametros){  //MÉtodo que se llama ejecutar consulta y le pueda pasar una cosnulta y unos parametros.
         try{

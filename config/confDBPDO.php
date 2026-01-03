@@ -6,7 +6,7 @@
     */
 
     /* CONF Entorno de desarrollo Casa */
-    define('DNS', 'mysql:192.168.1.100;dbname=DBAHFDWESLoginLogoff;charset=utf8');
+    define('DNS', 'mysql:host=192.168.1.100;dbname=DBAHFDWESLoginLogoff;charset=utf8');
     define('USUARIODB', 'userAHFDWESLoginLogoff');
     define('PSWD', 'paso');
     
