@@ -1,6 +1,5 @@
 <?php 
-   // Iniciamos la sesión
-   session_start();
+   
 /**
  * @author Alejandro De la Huerga
  * @since 16/12/2025
@@ -9,7 +8,10 @@
    // Cargamos los archivos de configuración
    require_once 'config/confAPP.php';
    require_once 'config/confDBPDO.php';
+   require_once 'model/Usuario.php';
    
+   // Iniciamos la sesión
+   session_start();
 
    // Si no esta la página en curso con la sesión la creamos con inicio público.
    if(!isset($_SESSION['paginaEnCurso'])){
