@@ -40,10 +40,52 @@ class UsuarioPDO{
         
         if($resultadoConsulta->rowCount()>0){ // si la consulta me devuleve algun resultado
             $oRegistroUsuario = $resultadoConsulta->fetchObject(); // guardo en la variable el resultado de la consulta en forma de objeto
-            $oUsuario = new Usuario($oRegistroUsuario->T01_CodUsuario, $oRegistroUsuario->T01_Password, $oRegistroUsuario->T01_DescUsuario, $oRegistroUsuario->T01_NumConexiones, $oRegistroUsuario->T01_FechaHoraUltimaConexion, $oRegistroUsuario->T01_Perfil, $oRegistroUsuario->T01_ImagenUsuario); 
+            $oUsuario = new Usuario(
+                $oRegistroUsuario->T01_CodUsuario, 
+                $oRegistroUsuario->T01_Password, 
+                $oRegistroUsuario->T01_DescUsuario, 
+                $oRegistroUsuario->T01_NumConexiones, 
+                $oRegistroUsuario->T01_FechaHoraUltimaConexion, 
+                $oRegistroUsuario->T01_Perfil, 
+                $oRegistroUsuario->T01_ImagenUsuario
+            ); 
+
+            self::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión.
         }
         
         return $oUsuario;    
+    }
+
+    /**
+     * Función para guardar la última conexión del usuario.
+     * Método que registra la fecha y la hora de la última conexión del usuario.
+     * 
+     * @param String $codUsuario código del usuario.
+     * @return null|Usuario con los campos actualizados.
+     * 
+     * @author Alejandro De la Huerga.
+     * @version 1.0.0 Fecha Última modificación: 04/12/2025.
+     * @since 04/01/2025
+     */
+
+    public static function registrarUltimaConexion ($usuario){
+        
+        $codUsuario = $usuario->getCodUsuario();
+            // Actualizamos número de conexiones y fecha/hora
+            $sentenciaUpdate = "UPDATE T_01Usuario SET T01_NumConexiones = T01_NumConexiones + 1, T01_FechaHoraUltimaConexion = NOW() WHERE T01_CodUsuario = ?";
+            $resultadoUpdate = DBPDO::ejecutarConsulta($sentenciaUpdate, [$codUsuario]);
+            // Select con los valores actualizados
+            $sentenciaSelect = "SELECT T01_NumConexiones, T01_FechaHoraUltimaConexion FROM T_01Usuario WHERE T01_CodUsuario = ?";
+            $resultadoSelect = DBPDO::ejecutarConsulta($sentenciaSelect, [$codUsuario]);
+            
+            if ($resultadoSelect->rowCount() > 0) {
+                $oRegistro = $resultadoSelect->fetchObject();
+                // Actualizamos el objeto Usuario con los nuevos valores
+                $usuario->setNumAccesos($oRegistro->T01_NumConexiones);
+                $usuario->setFechaHoraUltimaConexion($oRegistro->T01_FechaHoraUltimaConexion);
+                return true;
+            }
+            return false;
     }
 }
 ?>
