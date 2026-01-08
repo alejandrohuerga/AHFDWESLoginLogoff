@@ -18,7 +18,6 @@
 </head>
 <body>
     <?php require_once $view[$_SESSION['paginaEnCurso']];?>
-    </main>
     <footer>
         <p class="nombre"><a href="https://alejandrohuefer.ieslossauces.es/">Alejandro De la Huerga Fernández</a><p>
         <p class="webImitada"><a href="https://www.faceit.com/es" target="_blank">Página Web imitada</a><p>

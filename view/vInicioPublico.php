@@ -16,5 +16,5 @@
     </form>
 </header>
 <main>
-    
+    <img src="doc/images/caminoProgramado.PNG" alt="imagen camino programado">
 </main>

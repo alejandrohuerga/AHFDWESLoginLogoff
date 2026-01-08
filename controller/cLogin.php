@@ -52,7 +52,7 @@
                 $entradaOK = false;
             } else {
                 // Login correcto
-                $_SESSION['usuarioVGDAWAppLoginLogoff'] = $oUsuario;
+                $_SESSION['usuarioDAW202LoginLogoff'] = $oUsuario;
                 $_SESSION['paginaEnCurso'] = 'inicioPrivado';
                 header('Location: indexLoginLogoff.php');
                 exit;
