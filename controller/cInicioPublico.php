@@ -6,6 +6,7 @@
   
   // Código que se ejecuta al pulsar el botón iniciar sesión
   if (isset($_REQUEST["iniciarSesion"])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso']='login';
     header("location: indexLoginLogoff.php");  
     exit;

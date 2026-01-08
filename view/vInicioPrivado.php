@@ -7,7 +7,6 @@
 </header>
 <main>
     <?php
-
         if($_COOKIE["idioma"]=="es"){ // Mensaje que se muestra si elegimos el idioma en español
             echo "<h2>Bienvenido " . $aDatosUsuario['nombreUsuario'] . "</h2>";
             if($_SESSION['usuarioDAW202LoginLogoff'] -> getNumAccesos() == 0){
@@ -37,7 +36,6 @@
                 echo "<h2>Você fez login pela última vez em " . $aDatosUsuario['ultimaConexion'] . "</h2>";
             }
         }
-
     ?>
     <form>
         <input type="submit" name="detalle" value="Detalle" />
