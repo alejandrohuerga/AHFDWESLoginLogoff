@@ -38,7 +38,7 @@ class UsuarioPDO{
         $passwordEncriptado=hash("sha256", ($codUsuario.$password)); // enctripta el password pasado como parametro
         $resultadoConsulta = DBPDO::ejecutarConsulta($sentenciaSQL, [$codUsuario,$passwordEncriptado]); // guardo en la variable resultado el resultado que me devuelve la funcion que ejecuta la consulta con los paramtros pasados por parmetro
         
-        if($resultadoConsulta->rowCount()>0){ // si la consulta me devuleve algun resultado
+        if($resultadoConsulta->rowCount()>0){ // si la consulta me devuelve algun resultado
             $oRegistroUsuario = $resultadoConsulta->fetchObject(); // guardo en la variable el resultado de la consulta en forma de objeto
             $oUsuario = new Usuario(
                 $oRegistroUsuario->T01_CodUsuario, 
