@@ -19,9 +19,9 @@
     }
     
     $aDatosUsuario=[ // Array que almacena los datos que obtenemos del objeto usuario.
-        "nombreUsuario" => $_SESSION['usuarioDAW202LoginLogoff'] -> getDescUsuario() ,
-        "numeroConexiones" => $_SESSION['usuarioDAW202LoginLogoff'] -> getNumAccesos(),
-        "ultimaConexion" => $_SESSION['usuarioDAW202LoginLogoff'] -> getFechaHoraUltimaConexionAnterior()
+        "descUsuario" => $_SESSION['usuarioDAW202LoginLogoff'] -> getDescUsuario() ,
+        "numAccesos" => $_SESSION['usuarioDAW202LoginLogoff'] -> getNumAccesos(),
+        "fechaHoraUltimaConexionAnterior" => $_SESSION['usuarioDAW202LoginLogoff'] -> getFechaHoraUltimaConexionAnterior()
     ];
     
     require_once $view['layout'];
