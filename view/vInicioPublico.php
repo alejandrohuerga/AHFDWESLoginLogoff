@@ -16,18 +16,5 @@
     </form>
 </header>
 <main>
-    <div class="container">
-        <div class="carousel">
-            <input type="radio" name="rd" id="rd1">
-            <input type="radio" name="rd" id="rd2">
-            <input type="radio" name="rd" id="rd3">
-            <input type="radio" name="rd" id="rd4">
-            <div class="photos">
-                <img src="doc/images/caminoProgramado.PNG" alt="Camino Programado">
-                <img src="doc/images/diagramaClases.png" alt="Diagrama de Clases">
-                <img src="doc/images/modeloFisicoDatos.png" alt="Modelo Fisico de Datos">
-                <img src="doc/images/relacionFicheros.png" alt="Relacion de ficheros">
-            </div>
-        </div>
-    </div>
+    <img src="doc/images/caminoProgramado.PNG" alt="Camino Programado">
 </main>
