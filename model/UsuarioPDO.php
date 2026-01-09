@@ -45,14 +45,13 @@ class UsuarioPDO{
                 $oRegistroUsuario->T01_Password, 
                 $oRegistroUsuario->T01_DescUsuario, 
                 $oRegistroUsuario->T01_NumConexiones, 
-                $oRegistroUsuario->T01_FechaHoraUltimaConexion, 
+                $oRegistroUsuario->T01_FechaHoraUltimaConexion,
+                $oRegistroUsuario -> T01_FechaHoraUltimaConexionAnterior = null,
                 $oRegistroUsuario->T01_Perfil, 
                 $oRegistroUsuario->T01_ImagenUsuario
             ); 
-
             self::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión.
         }
-        
         return $oUsuario;    
     }
 

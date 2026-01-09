@@ -3,6 +3,10 @@
  * @author Alejandro De la Huerga Fernández
  * @since 16/12/2025
 */
+    // Importamos todo el modelo para no tener que importarlos por los archivos.
+    require_once 'model/Usuario.php';
+    require_once 'model/DBPDO.php';
+    require_once 'model/UsuarioPDO.php';
 
     $controller = [
         'inicioPublico' => 'controller/cInicioPublico.php',

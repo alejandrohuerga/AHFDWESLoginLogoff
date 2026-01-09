@@ -1,6 +1,6 @@
 <?php
     require_once 'core/231018libreriaValidacion.php'; // Importamos la libreria de validación.
-    require_once 'model/UsuarioPDO.php'; // Importamos la clase UsuarioPDO.
+    
     
     // Arrays para errores y respuestas
     $aErrores = [

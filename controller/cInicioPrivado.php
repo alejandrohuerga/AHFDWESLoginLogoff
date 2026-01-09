@@ -1,5 +1,5 @@
 <?php
-    require_once 'model/Usuario.php'; // Importamos el objeto Usuario
+    
 
     // Código que se ejecuta al pulsar el botón cerrar sesión
     if(isset($_REQUEST['cerrarSesion'])){

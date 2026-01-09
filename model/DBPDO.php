@@ -10,6 +10,7 @@ class DBPDO{  // Clase para la conexión con la base de datos y poder ejecutar c
             $consulta->execute($parametros); // Ejecución de la consulta con los parámetros pasados.
 
         }catch (PDOException $exc) {
+            $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
             $consulta=null; // Destruimos la consulta.
             $error = $exc->getCode(); // Guardamos en la variable error el error producido.
             $mensaje = $exc->getMessage(); // Guardamos en la variable mensaje el mensaje del error producido.
