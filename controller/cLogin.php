@@ -50,7 +50,7 @@
                 $entradaOK = false;
             } else {
                 // Login correcto
-                $oUsuario=UsuarioPDO::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión anterior.
+                UsuarioPDO::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión anterior.
                 $_SESSION['usuarioDAW202LoginLogoff'] = $oUsuario;
                 $_SESSION['paginaEnCurso'] = 'inicioPrivado';
                 header('Location: indexLoginLogoff.php');

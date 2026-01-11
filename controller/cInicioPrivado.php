@@ -19,7 +19,7 @@
     }
     
     $avInicioPrivvado=[ // Array que almacena los datos que obtenemos del objeto usuario.
-        "descUsuario" => $_SESSION['usuarioDAW202LoginLogoff'] -> getDescUsuario() ,
+        "descUsuario" => $_SESSION['usuarioDAW202LoginLogoff'] -> getDescUsuario(),
         "numAccesos" => $_SESSION['usuarioDAW202LoginLogoff'] -> getNumAccesos(),
         "fechaHoraUltimaConexionAnterior" => $_SESSION['usuarioDAW202LoginLogoff'] -> getFechaHoraUltimaConexionAnterior()
     ];
