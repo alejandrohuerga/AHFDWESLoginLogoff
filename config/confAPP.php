@@ -7,6 +7,7 @@
     require_once 'model/Usuario.php';
     require_once 'model/DBPDO.php';
     require_once 'model/UsuarioPDO.php';
+    require_once 'core/231018libreriaValidacion.php';
 
     $controller = [
         'inicioPublico' => 'controller/cInicioPublico.php',

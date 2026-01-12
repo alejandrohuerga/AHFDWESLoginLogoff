@@ -1,8 +1,13 @@
 <?php
-    require_once 'core/231018libreriaValidacion.php'; // Importamos la libreria de validación.
-    
-    
-    // Arrays para errores y respuestas
+
+    // Si pulsa el boton volver , volvemos a la pagina anterior.
+    if (isset($_REQUEST["cancelar"])) {
+        $_SESSION['paginaEnCurso']='inicioPublico';
+        header("location: indexLoginLogoff.php");  
+        exit;
+    }
+
+    // Arrays para errores y respuestas , llamarlos como en la base de datos. (T01_CodUsuario,T01_Password).
     $aErrores = [
         'usuario' => null,
         'password' => null
@@ -15,13 +20,6 @@
 
     // Variable para controlar si la entrada es correcta
     $entradaOK = true;
-
-    // Si pulsa el boton volver , volvemos a la pagina anterior.
-    if (isset($_REQUEST["cancelar"])) {
-        $_SESSION['paginaEnCurso']='inicioPublico';
-        header("location: indexLoginLogoff.php");  
-        exit;
-    }
 
     // Si pulsa iniciar Sesión, entramos en Inicio privado.
     if (isset($_REQUEST["entrar"])) {

@@ -33,7 +33,6 @@ class UsuarioPDO{
     public static function validarUsuario($codUsuario,$password){
         $oUsuario = null; // inicializo la variable que tendrá el objeto de clase usuario en el caso de que se encuentre en la base de datos
 
-        
         $sentenciaSQL = "Select * from T_01Usuario where T01_CodUsuario=? and T01_Password=?";
         $passwordEncriptado=hash("sha256", ($codUsuario.$password)); // enctripta el password pasado como parametro
         $resultadoConsulta = DBPDO::ejecutarConsulta($sentenciaSQL, [$codUsuario,$passwordEncriptado]); // guardo en la variable resultado el resultado que me devuelve la funcion que ejecuta la consulta con los paramtros pasados por parmetro
