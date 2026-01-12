@@ -66,24 +66,20 @@ class UsuarioPDO{
      * @since 04/01/2025
      */
 
-    public static function registrarUltimaConexion ($usuario){
+    public static function registrarUltimaConexion ($oUsuario){
         
-        $codUsuario = $usuario->getCodUsuario();
-            // Actualizamos número de conexiones y fecha/hora
-            $sentenciaUpdate = "UPDATE T_01Usuario SET T01_NumConexiones = T01_NumConexiones + 1, T01_FechaHoraUltimaConexion = NOW() WHERE T01_CodUsuario = ?";
-            $resultadoUpdate = DBPDO::ejecutarConsulta($sentenciaUpdate, [$codUsuario]);
-            // Select con los valores actualizados
-            $sentenciaSelect = "SELECT T01_NumConexiones, T01_FechaHoraUltimaConexion FROM T_01Usuario WHERE T01_CodUsuario = ?";
-            $resultadoSelect = DBPDO::ejecutarConsulta($sentenciaSelect, [$codUsuario]);
-            
-            if ($resultadoSelect->rowCount() > 0) {
-                $oRegistro = $resultadoSelect->fetchObject();
-                // Actualizamos el objeto Usuario con los nuevos valores
-                $usuario->setNumAccesos($oRegistro->T01_NumConexiones);
-                $usuario->setFechaHoraUltimaConexion($oRegistro->T01_FechaHoraUltimaConexion);
-                return true;
-            }
-            return false;
+        $codUsuario = $oUsuario->getCodUsuario();
+        // Actualizamos número de conexiones y fecha/hora
+        $sentenciaUpdate = "UPDATE T_01Usuario SET T01_NumConexiones = T01_NumConexiones + 1, T01_FechaHoraUltimaConexion = NOW() WHERE T01_CodUsuario = ?";
+        $resultadoUpdate = DBPDO::ejecutarConsulta($sentenciaUpdate, [$codUsuario]);
+        // Actualizamos el objeto usuario.
+        // Cambiamos la fecha que tenia de última conexion por la de ahora.
+        $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexionAnterior());
+        $oUsuario->setNumAccesos($oUsuario->getNumAccesos()+1);
+
+        // Establecer la nueva fecha de conexión (ahora)
+        date_default_timezone_set('Europe/Madrid');
+        $oUsuario->setFechaHoraUltimaConexion(new DateTime());  
     }
 }
 ?>

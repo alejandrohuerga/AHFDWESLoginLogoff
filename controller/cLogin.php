@@ -21,6 +21,9 @@
     // Variable para controlar si la entrada es correcta
     $entradaOK = true;
 
+    // Variable objeto de usuario inicializado a null.
+    $oUsuario=null;
+
     // Si pulsa iniciar Sesión, entramos en Inicio privado.
     if (isset($_REQUEST["entrar"])) {
         // Guardar página anterior
@@ -41,23 +44,27 @@
             }
         }
         
-        // Si la validación es correcta, validar con la BD
-        if ($entradaOK) {
-            $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['password']);
-            if ($oUsuario === null) {
-                $entradaOK = false;
-            } else {
-                // Login correcto
-                UsuarioPDO::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión anterior.
-                $_SESSION['usuarioDAW202LoginLogoff'] = $oUsuario;
-                $_SESSION['paginaEnCurso'] = 'inicioPrivado';
-                header('Location: indexLoginLogoff.php');
-                exit;
+        if($entradaOK){
+            $oUsuario=UsuarioPDO::validarUsuario($aRespuestas['usuario'],$aRespuestas['password']);
+
+            if(!isset($oUsuario)){
+                $entradaOK=false;
             }
         }
+        
     }else {
         // Si no se ha enviado el formulario
         $entradaOK = false;
+    }
+
+    // Si la validación es correcta, validar con la BD
+    if ($entradaOK) {
+        // Login correcto
+        UsuarioPDO::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión anterior.
+        $_SESSION['usuarioDAW202LoginLogoff'] = $oUsuario;
+        $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+        header('Location: indexLoginLogoff.php');
+        exit;
     }
 
     // cargamos el layout principal, y cargará cada página a parte de la estructura principal de la web
