@@ -5,16 +5,16 @@
     <form method="post">
         <input type="submit" name="iniciarSesion" value="INICIAR SESIÓN">
         <button type="submit" name="idioma" value="es">
-            <img src="doc/images/spain.png" alt="Español">
+            <img src="webroot/images/spain.png" alt="Español">
         </button>
         <button type="submit" name="idioma" value="en">
-            <img src="doc/images/reino-unido.png" alt="English">
+            <img src="webroot/images/reino-unido.png" alt="English">
         </button>
         <button type="submit" name="idioma" value="pt">
-            <img src="doc/images/portugal.png" alt="Português">
+            <img src="webroot/images/portugal.png" alt="Português">
         </button>
     </form>
 </header>
 <main>
-    <img src="doc/images/caminoProgramado.PNG" alt="Camino Programado">
+    <img src="webroot/images/caminoProgramado.PNG" alt="Camino Programado">
 </main>
