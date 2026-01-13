@@ -38,7 +38,7 @@ class UsuarioPDO{
         $resultadoConsulta = DBPDO::ejecutarConsulta($sentenciaSQL, [$codUsuario,$passwordEncriptado]); // guardo en la variable resultado el resultado que me devuelve la funcion que ejecuta la consulta con los paramtros pasados por parmetro
         
         if($resultadoConsulta->rowCount()>0){ // si la consulta me devuelve algun resultado
-            $oRegistroUsuario = $resultadoConsulta->fetchObject(); // guardo en la variable el resultado de la consulta en forma de objeto
+            $oRegistroUsuario = $resultadoConsulta->fetchObject(); // guardo en la variable el resultado de la consulta en forma de objeto.
             $oUsuario = new Usuario(
                 $oRegistroUsuario->T01_CodUsuario, 
                 $oRegistroUsuario->T01_Password, 
@@ -74,7 +74,7 @@ class UsuarioPDO{
         $resultadoUpdate = DBPDO::ejecutarConsulta($sentenciaUpdate, [$codUsuario]);
         // Actualizamos el objeto usuario.
         // Cambiamos la fecha que tenia de última conexion por la de ahora.
-        $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexionAnterior());
+        $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexion());
         $oUsuario->setNumAccesos($oUsuario->getNumAccesos()+1);
 
         // Establecer la nueva fecha de conexión (ahora)

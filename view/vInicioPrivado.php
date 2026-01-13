@@ -12,6 +12,7 @@
             if($avInicioPrivado['numAccesos']==0){
                 echo "<h2> ! Esta es la primera vez que te conectas !</h2>";
             }else{
+                
                 echo "<h2>Esta es la " . $avInicioPrivado['numAccesos'] . " vez que te conectas</h2>";
                 echo "<h2>Usted se conecto por última vez el   " . $avInicioPrivado['fechaHoraUltimaConexionAnterior'] . "</h2>";
             }
