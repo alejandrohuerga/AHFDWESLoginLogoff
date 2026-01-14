@@ -49,7 +49,7 @@ class UsuarioPDO{
                 $oRegistroUsuario->T01_Perfil, 
                 $oRegistroUsuario->T01_ImagenUsuario
             ); 
-            // self::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión.
+            self::registrarUltimaConexion($oUsuario); // Actualizamos la última conexión.
         }
         return $oUsuario;    
     }
