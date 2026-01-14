@@ -6,7 +6,7 @@
  * 
  * @author Alejandro De la Huerga Fernández
  * @version 1.0.0 Fecha última modificación: 18/12/2025
- * @since 1.0.0
+ * @since 14/01/2026
 */
 
 class Usuario{

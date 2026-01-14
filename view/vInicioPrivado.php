@@ -15,5 +15,6 @@
     <form>
         <input type="submit" name="detalle" value="Detalle" />
         <input type="submit" name="mantenimientoDep" value="Mentenimiento Departamentos"/>
+        <input type="submit" name="error" value="Error">
     </form>
 </main>
