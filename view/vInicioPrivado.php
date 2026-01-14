@@ -14,5 +14,6 @@
     ?> 
     <form>
         <input type="submit" name="detalle" value="Detalle" />
+        <input type="submit" name="mantenimientoDep" value="Mentenimiento Departamentos"/>
     </form>
 </main>

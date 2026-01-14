@@ -19,6 +19,15 @@
         exit;
     }
     
+    // Código que se ejecuta al pulsar el botón de mantenimiento de departamentos.
+    if(isset($_REQUEST['mantenimientoDep'])){
+        $_SESSION['paginaAnterior']= $_SESSION['paginaEnCurso'];
+        $_SESSION['paginaEnCurso'] = 'departamento';
+        header('Location: indexLoginLogoff.php');
+        exit;
+    }
+
+
     $avInicioPrivado=[ // Array que almacena los datos que obtenemos del objeto usuario.
         "descUsuario" => $_SESSION['usuarioDAW202LoginLogoff'] -> getDescUsuario(),
         "numAccesos" => $_SESSION['usuarioDAW202LoginLogoff'] -> getNumAccesos(),

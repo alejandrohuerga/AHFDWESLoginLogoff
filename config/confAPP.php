@@ -13,7 +13,8 @@
         'inicioPublico' => 'controller/cInicioPublico.php',
         'login' => 'controller/cLogin.php',
         'inicioPrivado' => 'controller/cInicioPrivado.php',
-        'detalle' => 'controller/cDetalle.php'
+        'detalle' => 'controller/cDetalle.php',
+        'departamento' => 'controller/cWip.php'
     ];
 
     $view = [
@@ -21,6 +22,7 @@
         'layout' => 'view/layout.php',
         'login' => 'view/vLogin.php',
         'inicioPrivado' => 'view/vInicioPrivado.php',
-        'detalle' => 'view/vDetalle.php'
+        'detalle' => 'view/vDetalle.php',
+        'departamento' => 'view/vWip.php'
     ];
 ?>

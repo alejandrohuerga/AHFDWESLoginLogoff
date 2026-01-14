@@ -25,7 +25,7 @@
             <div class="photos">
                 <!-- -->
                 <img src="webroot/images/caminoProgramado.PNG" alt="App Multicapa">
-                <img src="webroot/images/diagramaClases.png" alt="Diagrama clases">
+                <img src="webroot/images/diagramaClasesPropio.png" alt="Diagrama clases">
                 <img src="webroot/images/modeloFisicoDatos.png" alt="Modelo Fisico">
                 <img src="webroot/images/relacionFicheros.png" alt="Relacion ficheros">
             </div>
