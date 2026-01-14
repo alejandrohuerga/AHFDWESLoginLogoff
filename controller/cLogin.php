@@ -46,7 +46,6 @@
         
         if($entradaOK){
             $oUsuario=UsuarioPDO::validarUsuario($aRespuestas['usuario'],$aRespuestas['password']);
-
             if(!isset($oUsuario)){
                 $entradaOK=false;
             }

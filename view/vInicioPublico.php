@@ -16,5 +16,19 @@
     </form>
 </header>
 <main>
-    <img src="webroot/images/caminoProgramado.PNG" alt="Camino Programado">
+    <section class="seccionCarrusel">
+        <div class="carrusel-contenedor">
+            <input type="radio" name="rd" id="rd1" checked>
+            <input type="radio" name="rd" id="rd2">
+            <input type="radio" name="rd" id="rd3">
+            <input type="radio" name="rd" id="rd4">
+            <div class="photos">
+                <!-- -->
+                <img src="webroot/images/caminoProgramado.PNG" alt="App Multicapa">
+                <img src="webroot/images/diagramaClases.png" alt="Diagrama clases">
+                <img src="webroot/images/modeloFisicoDatos.png" alt="Modelo Fisico">
+                <img src="webroot/images/relacionFicheros.png" alt="Relacion ficheros">
+            </div>
+        </div>
+    </section>
 </main>
