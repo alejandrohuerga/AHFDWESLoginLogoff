@@ -28,6 +28,17 @@
         header("location: indexLoginLogoff.php");  
         exit;
     }
+
+    // Código que se ejecuta al pulsa el botón de Error.
+    if(isset($_REQUEST['error'])){
+        $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+        // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
+        $consultaError = "SELECT * FROM T03_Cuestion";
+        DBPDO::ejecutarConsulta($consultaError);
+        $_SESSION['paginaEnCurso'] = 'error';
+        header('Location: indexLoginLogoff.php');
+        exit;
+    }
     
     // Código que se ejecuta al pulsar el botón de mantenimiento de departamentos.
     if(isset($_REQUEST['mantenimientoDep'])){

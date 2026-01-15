@@ -14,9 +14,49 @@
         header("location: indexLoginLogoff.php");  
         exit;
     }
+
+    // Código que se ejecuta al pulsar el botón cerrar sesión
+    if(isset($_REQUEST['cerrarSesion'])){
+        $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+        // Si se pulsa le damos el valor a la página solicitada a la variable $_SESSION
+        $_SESSION['paginaEnCurso']='inicioPublico';
+        header("location: indexLoginLogoff.php");  
+        exit;
+    }
+
+    if(isset($_REQUEST['volver'])){
+        $_SESSION['paginaEnCurso']='inicioPrivado';
+        header("location: indexLoginLogoff.php");  
+        exit;
+    }
+
+    $avError = [
+        'codError' => '',
+        'descError' => '',
+        'archivoError' => '',
+        'lineaError' => '',
+        'paginaSiguiente' => ''
+    ];
     
     // Almacenamos los datos del error de la sesión.
     if(isset($_SESSION['error'])){
-
+        $oError=$_SESSION['error'];
+        $avError=[
+            'codError'=>$oError->getCodError(),
+            'descError'=>$oError->getDescError(),
+            'archivoError'=>$oError->getArchivoError(),
+            'lineaError'=>$oError->getLineaError(),
+            'paginaSiguiente'=>$oError->getPaginaSiguiente()
+        ];
+        unset($_SESSION['error']);
     }
+
+    if(isset($_REQUEST['volver'])){
+        // Si se pulsa le damos el valor de la página solicitada a la variable $_SESSION.
+        $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior'];
+        header('Location: indexLoginLogoff.php');
+        exit;
+    }
+
+    require_once $view['layout'];
 ?>

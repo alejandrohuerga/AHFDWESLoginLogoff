@@ -10,7 +10,7 @@
      * @version 1.0.0
      */
 
-    class Error{
+    class AppError{
         private $codError;
         private $descError;
         private $archivoError;
