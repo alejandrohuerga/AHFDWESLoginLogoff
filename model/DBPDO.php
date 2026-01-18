@@ -9,24 +9,22 @@ class DBPDO{  // Clase para la conexión con la base de datos y poder ejecutar c
             $consulta =$miDB->prepare($entradaSQL); // Preparación de la consulta que se le ha pasado como parámetro.
             $consulta->execute($parametros); // Ejecución de la consulta con los parámetros pasados.
 
+            return $consulta; // Devolvemos la consulta.
         }catch (PDOException $exc) {
             $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
             $_SESSION['paginaEnCurso'] = 'error';
-
             $_SESSION['error'] = new AppError(
                 $exc -> getCode(),
                 $exc -> getMessage(),
                 $exc -> getFile(),
                 $exc -> getLine(),
                 $_SESSION['paginaAnterior']
-
             );
-
             header('Location: indexLoginLogoff.php');
             exit;
         }
 
-        return $consulta; // Devolvemos la consulta.
+        
     }
 }
 

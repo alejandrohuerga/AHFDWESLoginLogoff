@@ -48,6 +48,14 @@
         exit;
     }
 
+    //Código que se ejecuta cuando pulsamos el botón Api
+    if(isset($_REQUEST['api'])){
+        $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+        $_SESSION['paginaEnCurso'] = 'api';
+        header('Location: indexLoginLogoff.php');
+        exit;
+    }
+
 
     $avInicioPrivado=[ // Array que almacena los datos que obtenemos del objeto usuario.
         "descUsuario" => $_SESSION['usuarioDAW202LoginLogoff'] -> getDescUsuario(),
