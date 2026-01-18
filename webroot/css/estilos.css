@@ -523,8 +523,26 @@ main.detalle table.tableSG th {
 }
 
 .Rest{
-    border: 2px solid yellow;
+    border: 2px solid black;
     width: 100%;
     height: 100%;
     text-align: center;
+    background-color: rgb(56,56,56);
+
+    & h2{
+        margin-bottom: 30px;
+    }
+}
+
+.tituloRest{
+    margin-bottom: 30px;
+}
+
+#urlNasa{
+    color: white;
+}
+/* INFORMACIÓN APIS */
+
+.infoApi{
+    margin-top: 30px;
 }

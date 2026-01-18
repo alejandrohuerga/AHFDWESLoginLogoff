@@ -8,24 +8,27 @@
      * @since 18/01/2026
      * @version 1.0.0 Última actualización 18/01/2026
      */
-class FotoNasa{
+class FotoNasa
+{
     private $titulo;
     private $foto;
+    private $fecha;
 
     /**
      * Funcition __construct
      * Función constructor para poder crear un objeto FotoNasa.
      * @param String $título Titulo de la imagen de la nasa.
      * @param String $foto URL con la foto del día de la nasa.
-     * 
+     * @param String @fecha
      * @since 18/01/2026
      * @author Alejandro De la Huerga.
      * @version 1.0.0
      */
-    public function __construct($titulo, $foto)
+    public function __construct($titulo, $foto, $fecha)
     {
         $this->titulo = $titulo;
         $this->foto = $foto;
+        $this->fecha = $fecha;
     }
 
     public function getTitulo()
@@ -47,6 +50,17 @@ class FotoNasa{
     public function setFoto($foto)
     {
         $this->foto = $foto;
+        return $this;
+    }
+
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
         return $this;
     }
 }

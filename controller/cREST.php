@@ -24,74 +24,17 @@
         exit;
     }
 
-    // Array que asociativo que almacena los array con las respuestas de la Nasa.
-    $aVistaRest=[
-        'nasa'=>[], // Array que almacena la información de la Nasa (title,url).
-        'aemet' =>[]
-    ];
-
-    // Establecemos la fecha actual para la nasa y guardamos en la sesión.
-    $_SESSION['nasaFechaActual'] = date('y-m-d');
-
-    /**
-     * Verificamos si hemos mandado la fecha para obtener la foto de la nasa.
-     * Si es asi actualizamos la fecha en la sesión.
-    */
-
-    if(isset($_REQUEST['fechaNasa'])){
-        $_SESSION['nasaFechaActual'] = $_REQUEST['fechaNasa'];
-    }
-    /**
-    * Llamamos a la API de la NASA utilizando la fecha en curso almacenada en la sesión.
-    * Si la respuesta es correcta se almacena el título y la url de la foto.
-    */
-
-    /*
-    try{
-        
-
-        $oFotoNasaEnCurso = REST::apiNasa($_SESSION['nasaFechaActual']);
-
-        if($oFotoNasaEnCurso && is_object($oFotoNasaEnCurso)){
-            // Almacenamis el título obtenido en el array.
-            $aVistaRest['nasa']['titulo'] = $oFotoNasaEnCurso->getTitulo();
-            // Almacenamos la url obtenida en el array.
-            $aVistaRest['nasa']['foto'] = $oFotoNasaEnCurso->getFoto();
-        }else{ // Si hay respuesta nula lanza una excepción
-            throw new Exception('No se ha podido obtener la información de la API');
-        }
-    }catch (Exception $ex){
-        $error = new AppError(
-            $ex-> getCode(),
-            $ex -> getMessage(),
-            $ex ->getFile(),
-            $ex -> getLine(),
-            $_SESSION['paginaAnterior']
-        );
-        // Guardamos el objeto ErrorApp en la sesión
-        $_SESSION['error'] = $error;
-        $_SESSION['paginaEnCurso'] = 'error';
-        header('Location: indexLoginLogoff.php');
-        exit();
-    }
-    */
-
     
+    //se obtiene la fecha de hoy
+    $fechaHoy = new DateTime();
+    $fechaHoyFormateada = $fechaHoy->format('Y-m-d');
+    //se llama a la api con la fecha formateada
+    $oFotoNasa = REST::apiNasa($fechaHoyFormateada);
 
-    if (isset($_REQUEST['buscarAemet'])) {
-        $provincia = trim($_REQUEST['provincia']);
-        $localidad = trim($_REQUEST['localidad']);
-        if ($provincia !== '' && $localidad !== '') {
-            $datosAemet = REST::apiAemet($provincia, $localidad);
-            if ($datosAemet !== null) {
-                $aVistaRest['aemet'] = [
-                    'estado' => $datosAemet['estado'],
-                    'max'    => $datosAemet['max'],
-                    'min'    => $datosAemet['min']
-                ];
-            }
-        }
-    }
-
+    //Se crea un array con los datos del usuario para pasarlos a la vista
+    $avRest = [
+        'fotoNasa'=>$oFotoNasa
+    ];
+    
     require_once $view['layout'];
 ?>
